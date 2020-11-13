@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+   <style>
+       h1{
+           font-family: Arial, Helvetica, sans-serif;
+       }
+       #title
+       {
+           background-color: green;
+       }
+
+       .heading
+       {
+           color: #fff;
+       }
+   </style>
+</head>
+<body>
+    <div id="react-root"></div>
+    
+
+    <script type="text/babel">
+        // creation d'un composant fonctionnelle
+
+        // const BonjourFonctionnelle = () => <h1>Bonjour d'un composant fonctionnelle'!</h1>
+        // ReactDOM.render(
+        //     <BonjourFonctionnelle/>,
+        //     document.getElementById('react-root')
+        // )
+        // #######################
+        // Creation d'un composant react video 3
+
+        class Bonjour extends React.Component{
+            render(){
+                return(
+                    // Pour les class en react on met className à la place de class
+                    <div id="title">
+                        <h1 className="heading"> {this.props.message} </h1>
+                        <p>Vous avez la meilleure version {this.props.version} d'humain</p>
+                    </div>
+                )
+            }
+        }
+
+        const Bonjour = ({message, version}) =>(
+            <div id="title">
+                <h1 className="heading">{message}</h1>
+                <p>Vous avez la meilleure version {version} d'humain</p>
+            </div>
+        )
+
+        ReactDOM.render(
+            <Bonjour message="Bonjour de la part de alpha!" version={16} />,
+            document.getElementById('react-root')
+        );
+
+    </script>
+</body>
+</html>
